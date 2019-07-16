@@ -23,8 +23,13 @@
         android:layout_height="wrap_content"
         android:onClick="BuscarPelicula"
         android:text="Buscar"
-        app:layout_constraintTop_toBottomOf="@+id/TextoBuscar"
+        app:layout_constraintTop_toBottomOf="@+id/TextoBuscar" />
 
-        />
+    <FrameLayout
+        android:id="@+id/FragmentId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscar">
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>
