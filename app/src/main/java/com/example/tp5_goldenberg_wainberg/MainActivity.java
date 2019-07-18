@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,18 +25,31 @@ public class MainActivity extends AppCompatActivity {
         EditText a = findViewById(R.id.TextoBuscar);
         String texto = a.getText().toString();
 
+
         Bundle cositas= new Bundle();
-        cositas.putString("textobuscar",texto);
 
-        Fragment BuscaPel;
-        BuscaPel = new fragmentBuscar();
-        BuscaPel.setArguments(cositas);
+        RadioGroup radioid= findViewById(R.id.LinearRadio);
 
-        manejadorF= getFragmentManager();
+        int radio = radioid.getCheckedRadioButtonId();
+        if(radio == findViewById(R.id.RadioUno).getId()){
+            cositas.putString("textobuscar",texto);
 
-        transac= manejadorF.beginTransaction();
-        transac.replace(R.id.FragmentId, BuscaPel);
-        transac.commit();
+            Fragment BuscaPel;
+            BuscaPel = new fragmentBuscar();
+            BuscaPel.setArguments(cositas);
+
+            manejadorF= getFragmentManager();
+
+            transac= manejadorF.beginTransaction();
+            transac.replace(R.id.FragmentId, BuscaPel);
+            transac.commit();
+        }
+        else{
+
+        }
+
+
+
 
     }
 
